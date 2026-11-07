@@ -1,0 +1,7 @@
+{
+  "name": "ApexString - BMW Wheel Alignment",
+  "description": "Precision string alignment calculator, session tracker, and chassis adjustment guide for BMW E60, E87, F11, and custom vehicles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
