@@ -65,31 +65,33 @@ export const ComparisonReport: React.FC<ComparisonReportProps> = ({ session, veh
         </div>
 
         <div className="flex items-center gap-2 self-end sm:self-auto">
-          {/* Mobile View Toggle */}
-          <div className="sm:hidden flex items-center bg-neutral-950 p-1 rounded-lg border border-neutral-800 text-xs">
+          {/* View Toggle: Cards (Mobile/Tablet Friendly) vs Full Matrix Table */}
+          <div className="flex items-center bg-neutral-950 p-0.5 rounded-lg border border-neutral-800 text-xs">
             <button
               onClick={() => setMobileViewMode('cards')}
-              className={`p-1.5 rounded ${
-                mobileViewMode === 'cards' ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-400'
+              className={`flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors ${
+                mobileViewMode === 'cards' ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-400 hover:text-white'
               }`}
-              title="Card View"
+              title="Cards View"
             >
-              <LayoutList className="w-4 h-4" />
+              <LayoutList className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Cards</span>
             </button>
             <button
               onClick={() => setMobileViewMode('table')}
-              className={`p-1.5 rounded ${
-                mobileViewMode === 'table' ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-400'
+              className={`flex items-center gap-1 px-2 py-1 rounded text-xs transition-colors ${
+                mobileViewMode === 'table' ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-400 hover:text-white'
               }`}
-              title="Table View"
+              title="Full Table View"
             >
-              <Table className="w-4 h-4" />
+              <Table className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Table</span>
             </button>
           </div>
 
           <button
             onClick={handlePrint}
-            className="flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-semibold border border-neutral-700 transition-colors shadow-sm min-h-[40px] sm:min-h-0"
+            className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-xs font-semibold border border-neutral-700 transition-colors shadow-sm min-h-[36px] sm:min-h-0"
           >
             <Printer className="w-4 h-4 text-amber-400" />
             <span>Print / PDF</span>

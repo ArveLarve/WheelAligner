@@ -43,10 +43,40 @@ import {
 } from 'lucide-react';
 
 import { MobileBottomNav } from './components/MobileBottomNav';
+import {
+  loadStoredNavLayout,
+  NavLayoutMode,
+  saveStoredNavLayout,
+} from './utils/storage';
 
 export default function App() {
   // Theme state
   const [isDark, setIsDark] = useState<boolean>(true);
+
+  // Navigation layout mode (auto defaults to bottom bar on tablets and phones < 1200px)
+  const [navLayoutMode, setNavLayoutMode] = useState<NavLayoutMode>(() => loadStoredNavLayout());
+  const [windowWidth, setWindowWidth] = useState<number>(() =>
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const useBottomNav =
+    navLayoutMode === 'bottom'
+      ? true
+      : navLayoutMode === 'top'
+      ? false
+      : windowWidth < 1200; // Automatically enables bottom nav on tablets (like 1024x640) & mobile phones
+
+  const handleToggleNavLayout = () => {
+    const nextMode: NavLayoutMode = useBottomNav ? 'top' : 'bottom';
+    setNavLayoutMode(nextMode);
+    saveStoredNavLayout(nextMode);
+  };
 
   // Loaded database
   const [vehicles, setVehicles] = useState<VehicleProfile[]>([]);
@@ -323,6 +353,9 @@ export default function App() {
         isDark={isDark}
         onToggleTheme={() => setIsDark(!isDark)}
         onOpenVehicles={() => setIsVehicleModalOpen(true)}
+        useBottomNav={useBottomNav}
+        navLayoutMode={navLayoutMode}
+        onToggleNavLayout={handleToggleNavLayout}
       />
 
       {/* Subheader Chassis & Session Context Bar */}
@@ -369,8 +402,8 @@ export default function App() {
         </div>
       </div>
 
-      {/* Main Content Viewport - pb-24 ensures mobile bottom nav never covers content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-3.5 sm:p-6 pb-24 md:pb-6 space-y-4 sm:space-y-6">
+      {/* Main Content Viewport - pb-24 ensures mobile/tablet bottom nav never covers content */}
+      <main className={`flex-1 max-w-7xl w-full mx-auto p-3.5 sm:p-5 ${useBottomNav ? 'pb-24' : 'pb-6'} space-y-4`}>
         {/* TAB 1: ALIGNMENT RIG & MEASUREMENT */}
         {currentTab === 'measure' && (
           <div className="space-y-4 sm:space-y-6">
@@ -428,15 +461,17 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer - Desktop only */}
-      <footer className="no-print hidden md:block border-t border-neutral-900 bg-neutral-950 py-4 px-6 text-center text-xs text-neutral-500 font-mono">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>ApexString Precision Alignment · BMW E60, E87 & F11 Geometry</span>
-          <span>Parallel Box String Method · Local Garage Storage</span>
-        </div>
-      </footer>
+      {/* Footer - Desktop / Top Nav only */}
+      {!useBottomNav && (
+        <footer className="no-print hidden md:block border-t border-neutral-900 bg-neutral-950 py-3 px-6 text-center text-xs text-neutral-500 font-mono">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span>ApexString Precision Alignment · BMW E60, E87 &amp; F11 Geometry</span>
+            <span>Parallel Box String Method · Diagnostic Tablet Ready</span>
+          </div>
+        </footer>
+      )}
 
-      {/* Mobile Fixed Bottom Navigation Bar */}
+      {/* Mobile & Diagnostic Tablet Fixed Bottom Navigation Bar */}
       <MobileBottomNav
         currentTab={currentTab}
         onSelectTab={setCurrentTab}
@@ -446,6 +481,9 @@ export default function App() {
         onExport={handleExportBackup}
         isDark={isDark}
         onToggleTheme={() => setIsDark(!isDark)}
+        isVisible={useBottomNav}
+        navLayoutMode={navLayoutMode}
+        onToggleNavLayout={handleToggleNavLayout}
       />
 
       {/* Modals */}

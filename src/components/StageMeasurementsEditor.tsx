@@ -127,20 +127,20 @@ export const StageMeasurementsEditor: React.FC<StageMeasurementsEditorProps> = (
         </div>
       </div>
 
-      {/* Mobile Wheel Selector Filter (Single-wheel focus under the car) */}
-      <div className="sm:hidden px-3 py-2 bg-neutral-900 border-b border-neutral-800/80 flex items-center gap-1 text-xs font-mono">
-        <span className="text-[10px] text-neutral-500 uppercase mr-1">Wheel:</span>
+      {/* Wheel Selector Filter (Single-wheel focus under the car or All Wheels) */}
+      <div className="px-3 py-1.5 bg-neutral-900 border-b border-neutral-800/80 flex items-center gap-1.5 text-xs font-mono">
+        <span className="text-[10px] text-neutral-400 uppercase mr-1 hidden xs:inline">Focus Wheel:</span>
         {(['ALL', 'FL', 'FR', 'RL', 'RR'] as const).map((w) => (
           <button
             key={w}
             onClick={() => setMobileWheelFilter(w)}
-            className={`flex-1 py-1 rounded text-center font-bold text-xs transition-colors min-h-[36px] ${
+            className={`flex-1 sm:flex-none px-3 py-1 rounded-md text-center font-bold text-xs transition-colors min-h-[34px] ${
               mobileWheelFilter === w
-                ? 'bg-amber-500 text-neutral-950'
-                : 'bg-neutral-950 text-neutral-400 border border-neutral-800'
+                ? 'bg-amber-500 text-neutral-950 shadow-sm'
+                : 'bg-neutral-950 text-neutral-400 border border-neutral-800 hover:text-white'
             }`}
           >
-            {w}
+            {w === 'ALL' ? 'All 4 Wheels' : w}
           </button>
         ))}
       </div>

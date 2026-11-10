@@ -7,7 +7,28 @@ const STORAGE_KEYS = {
   ACTIVE_VEHICLE_ID: 'apex_string_active_vehicle_id_v1',
   ACTIVE_SESSION_ID: 'apex_string_active_session_id_v1',
   THEME_MODE: 'apex_string_theme_mode_v1',
+  NAV_LAYOUT_MODE: 'apex_string_nav_layout_mode_v1',
 };
+
+export type NavLayoutMode = 'auto' | 'bottom' | 'top';
+
+export function loadStoredNavLayout(): NavLayoutMode {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.NAV_LAYOUT_MODE);
+    if (raw === 'bottom' || raw === 'top') return raw;
+    return 'auto';
+  } catch {
+    return 'auto';
+  }
+}
+
+export function saveStoredNavLayout(mode: NavLayoutMode): void {
+  try {
+    localStorage.setItem(STORAGE_KEYS.NAV_LAYOUT_MODE, mode);
+  } catch (err) {
+    console.error('Error saving nav layout mode:', err);
+  }
+}
 
 export const INITIAL_DEMO_SESSION: AlignmentSession = {
   id: 'session-demo-e60-01',
