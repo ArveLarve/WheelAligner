@@ -83,7 +83,7 @@ export const StringBoxVisualizer: React.FC<StringBoxVisualizerProps> = ({
               {toe.formattedString}
             </span>
             <span className="text-[9px] text-neutral-500">
-              {toe.isToeIn ? 'Toe-In' : 'Toe-Out'}
+              {toe.deltaMm === 0 ? 'Neutral (0°)' : toe.isToeIn ? 'Toe-In' : 'Toe-Out'}
             </span>
           </div>
 

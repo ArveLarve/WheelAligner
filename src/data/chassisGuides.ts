@@ -79,7 +79,7 @@ export const STRING_ALIGNMENT_MASTER_GUIDE: GuideStep[] = [
       'Center the steering wheel exactly straight and lock it in place with a steering wheel holder clamp or bungee.',
       'At each wheel, use a 150mm steel machinists rule (with 0.5mm graduations) or digital caliper depth gauge. Rest the end against the front outer lip of the rim at hub height and read distance to the string (d_front).',
       'Repeat on the rear outer lip of the rim (d_rear). Never push the string; read the line just as the light breaks or contacts without deflecting.',
-      'Delta = d_rear - d_front. If d_rear > d_front, the front of the wheel points inward (Toe-In). If d_front > d_rear, it points outward (Toe-Out).',
+      'Delta = d_front - d_rear. If d_front > d_rear, the front of the wheel points inward toward the car (Toe-In, positive). If d_rear > d_front, the front of the wheel points outward (Toe-Out, negative).',
       'Place your digital angle gauge / smart level vertically against the top and bottom wheel lip (or using a 3-point camber adapter) to record Camber in degrees.',
     ],
     toolNeeded: '150mm steel ruler with 0.5mm resolution or digital depth caliper, digital inclinometer/camber gauge',

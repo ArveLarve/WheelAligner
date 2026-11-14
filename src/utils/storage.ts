@@ -50,8 +50,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
       wheels: {
         FL: {
           wheel: 'FL',
-          stringFrontMm: 48.0,
-          stringRearMm: 46.2, // Toe-out: -1.8mm (-0.21°)
+          stringFrontMm: 46.2,
+          stringRearMm: 48.0, // Toe-out: -1.8mm (-0.21°)
           hubToStringMm: 95.0,
           camberDeg: -0.45,
           casterDeg: 7.4,
@@ -60,8 +60,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         FR: {
           wheel: 'FR',
-          stringFrontMm: 45.5,
-          stringRearMm: 47.8, // Toe-in: +2.3mm (+0.27°)
+          stringFrontMm: 47.8,
+          stringRearMm: 45.5, // Toe-in: +2.3mm (+0.27°)
           hubToStringMm: 95.0,
           camberDeg: -0.50,
           casterDeg: 7.3,
@@ -70,8 +70,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RL: {
           wheel: 'RL',
-          stringFrontMm: 38.0,
-          stringRearMm: 37.5, // Toe-out: -0.5mm
+          stringFrontMm: 37.5,
+          stringRearMm: 38.0, // Toe-out: -0.5mm
           hubToStringMm: 83.0,
           camberDeg: -1.25,
           rideHeightMm: 570,
@@ -79,8 +79,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RR: {
           wheel: 'RR',
-          stringFrontMm: 35.0,
-          stringRearMm: 38.5, // Toe-in: +3.5mm
+          stringFrontMm: 38.5,
+          stringRearMm: 35.0, // Toe-in: +3.5mm
           hubToStringMm: 83.0,
           camberDeg: -2.10,
           rideHeightMm: 571,
@@ -94,8 +94,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
       wheels: {
         FL: {
           wheel: 'FL',
-          stringFrontMm: 47.0,
-          stringRearMm: 46.5,
+          stringFrontMm: 46.5,
+          stringRearMm: 47.0, // -0.5mm
           hubToStringMm: 95.0,
           camberDeg: -0.90,
           casterDeg: 7.5,
@@ -104,8 +104,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         FR: {
           wheel: 'FR',
-          stringFrontMm: 46.0,
-          stringRearMm: 47.2,
+          stringFrontMm: 47.2,
+          stringRearMm: 46.0, // +1.2mm
           hubToStringMm: 95.0,
           camberDeg: -0.88,
           casterDeg: 7.4,
@@ -114,8 +114,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RL: {
           wheel: 'RL',
-          stringFrontMm: 37.0,
-          stringRearMm: 38.8,
+          stringFrontMm: 38.8,
+          stringRearMm: 37.0, // +1.8mm
           hubToStringMm: 83.0,
           camberDeg: -1.65,
           rideHeightMm: 570,
@@ -123,8 +123,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RR: {
           wheel: 'RR',
-          stringFrontMm: 36.5,
-          stringRearMm: 38.5,
+          stringFrontMm: 38.5,
+          stringRearMm: 36.5, // +2.0mm
           hubToStringMm: 83.0,
           camberDeg: -1.62,
           rideHeightMm: 571,
@@ -138,8 +138,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
       wheels: {
         FL: {
           wheel: 'FL',
-          stringFrontMm: 46.5,
-          stringRearMm: 47.4, // +0.9mm toe-in (+0.11°)
+          stringFrontMm: 47.4,
+          stringRearMm: 46.5, // +0.9mm toe-in (+0.11°)
           hubToStringMm: 95.0,
           camberDeg: -0.88,
           casterDeg: 7.5,
@@ -148,8 +148,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         FR: {
           wheel: 'FR',
-          stringFrontMm: 46.5,
-          stringRearMm: 47.4, // +0.9mm toe-in (+0.11°)
+          stringFrontMm: 47.4,
+          stringRearMm: 46.5, // +0.9mm toe-in (+0.11°)
           hubToStringMm: 95.0,
           camberDeg: -0.86,
           casterDeg: 7.5,
@@ -158,8 +158,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RL: {
           wheel: 'RL',
-          stringFrontMm: 37.0,
-          stringRearMm: 38.1, // +1.1mm toe-in (+0.13°)
+          stringFrontMm: 38.1,
+          stringRearMm: 37.0, // +1.1mm toe-in (+0.13°)
           hubToStringMm: 83.0,
           camberDeg: -1.62,
           rideHeightMm: 570,
@@ -167,8 +167,8 @@ export const INITIAL_DEMO_SESSION: AlignmentSession = {
         },
         RR: {
           wheel: 'RR',
-          stringFrontMm: 37.0,
-          stringRearMm: 38.1, // +1.1mm toe-in (+0.13°)
+          stringFrontMm: 38.1,
+          stringRearMm: 37.0, // +1.1mm toe-in (+0.13°)
           hubToStringMm: 83.0,
           camberDeg: -1.60,
           rideHeightMm: 571,

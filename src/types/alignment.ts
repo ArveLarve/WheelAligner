@@ -78,7 +78,7 @@ export interface AlignmentSession {
 
 export interface CalculatedWheelToe {
   wheel: WheelPosition;
-  deltaMm: number; // rear - front (positive = toe-in, negative = toe-out)
+  deltaMm: number; // front - rear (positive = toe-in, negative = toe-out)
   angleDeg: number;
   angleMinutes: number;
   formattedString: string;

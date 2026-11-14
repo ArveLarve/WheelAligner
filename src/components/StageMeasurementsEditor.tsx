@@ -357,9 +357,12 @@ export const StageMeasurementsEditor: React.FC<StageMeasurementsEditorProps> = (
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-neutral-400">Toe:</span>
                   <strong className="text-white">
-                    {calcToe.deltaMm >= 0 ? `+${calcToe.deltaMm}` : calcToe.deltaMm} mm
+                    {calcToe.deltaMm > 0 ? `+${calcToe.deltaMm}` : calcToe.deltaMm} mm
                   </strong>
                   <span className="text-neutral-400">({calcToe.formattedString})</span>
+                  <span className="text-neutral-400">
+                    · {calcToe.deltaMm === 0 ? 'Neutral' : calcToe.isToeIn ? 'Toe-In' : 'Toe-Out'}
+                  </span>
                 </div>
 
                 <span

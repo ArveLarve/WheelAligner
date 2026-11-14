@@ -165,10 +165,10 @@ export default function App() {
     activeSession?.stages.before || {
       timestamp: new Date().toISOString(),
       wheels: {
-        FL: { wheel: 'FL', stringFrontMm: 46.5, stringRearMm: 47.4, camberDeg: -0.88, rideHeightMm: 582 },
-        FR: { wheel: 'FR', stringFrontMm: 46.5, stringRearMm: 47.4, camberDeg: -0.86, rideHeightMm: 583 },
-        RL: { wheel: 'RL', stringFrontMm: 37.0, stringRearMm: 38.1, camberDeg: -1.62, rideHeightMm: 570 },
-        RR: { wheel: 'RR', stringFrontMm: 37.0, stringRearMm: 38.1, camberDeg: -1.60, rideHeightMm: 571 },
+        FL: { wheel: 'FL', stringFrontMm: 47.4, stringRearMm: 46.5, camberDeg: -0.88, rideHeightMm: 582 },
+        FR: { wheel: 'FR', stringFrontMm: 47.4, stringRearMm: 46.5, camberDeg: -0.86, rideHeightMm: 583 },
+        RL: { wheel: 'RL', stringFrontMm: 38.1, stringRearMm: 37.0, camberDeg: -1.62, rideHeightMm: 570 },
+        RR: { wheel: 'RR', stringFrontMm: 38.1, stringRearMm: 37.0, camberDeg: -1.60, rideHeightMm: 571 },
       },
     };
 

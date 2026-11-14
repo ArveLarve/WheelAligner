@@ -21,9 +21,15 @@ export function calculateDefaultRimLipDiameter(inches: number): number {
 }
 
 /**
- * Calculates toe for an individual wheel from string measurements.
- * @param stringFrontMm distance from string to front rim edge
- * @param stringRearMm distance from string to rear rim edge
+ * Calculates toe for an individual wheel from external parallel string measurements.
+ * Since strings run outside the wheels:
+ *  - If front rim lip is further from string than rear rim lip (stringFrontMm > stringRearMm),
+ *    the front of the wheel points inward toward the car centerline -> positive Toe-In.
+ *  - If rear rim lip is further from string than front rim lip (stringRearMm > stringFrontMm),
+ *    the front of the wheel points outward -> negative Toe-Out.
+ *
+ * @param stringFrontMm distance from external string to front rim lip edge
+ * @param stringRearMm distance from external string to rear rim lip edge
  * @param rimLipDiameterMm effective diameter between measuring points on the rim
  */
 export function calculateIndividualToe(
@@ -33,7 +39,7 @@ export function calculateIndividualToe(
   rimLipDiameterMm: number,
   targetRange?: TargetRange
 ): CalculatedWheelToe {
-  const deltaMm = stringRearMm - stringFrontMm;
+  const deltaMm = stringFrontMm - stringRearMm;
   // Protect against math domain error if delta > rimLipDiameter
   const clampedRatio = Math.max(-0.999, Math.min(0.999, deltaMm / (rimLipDiameterMm || 480)));
   const angleRad = Math.asin(clampedRatio);
